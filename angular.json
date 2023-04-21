@@ -118,6 +118,46 @@
           }
         }
       }
+    },
+    "d3-lib": {
+      "projectType": "library",
+      "root": "projects/d3-lib",
+      "sourceRoot": "projects/d3-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/d3-lib/tsconfig.lib.json",
+            "project": "projects/d3-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/d3-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/d3-lib/src/test.ts",
+            "tsConfig": "projects/d3-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/d3-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/d3-lib/tsconfig.lib.json",
+              "projects/d3-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "debug-cnpm"
